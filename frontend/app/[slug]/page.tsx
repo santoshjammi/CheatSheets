@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getToolBySlug, getGeneratedSlugs } from "@/lib/data";
 import TableOfContents from "@/components/TableOfContents";
 import CommandReferenceSection from "@/components/CommandReferenceSection";
+import AdSlot from "@/components/AdSlot";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://cheatsheets.countrysnews.com";
 const COMPANY_NAME = "Ameya Labs";
@@ -131,6 +132,9 @@ export default async function ToolPage({
           </div>
 
           <CommandReferenceSection commands={tool.commands} />
+
+          {/* Ad — after the command reference */}
+          <AdSlot slot="devkeys-tool-bottom" size="horizontal" />
         </main>
       </div>
     </div>

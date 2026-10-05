@@ -4,6 +4,7 @@ import type { ToolMeta } from "@/lib/types";
 import { CATEGORIES } from "@/lib/types";
 import ToolCard from "@/components/ToolCard";
 import AudienceFilter from "@/components/AudienceFilter";
+import AdSlot from "@/components/AdSlot";
 
 // Fully static — data is baked in at build time, no runtime filesystem reads
 export const dynamic = "force-static";
@@ -106,6 +107,9 @@ export default async function Home() {
           to search.
         </p>
       </div>
+
+      {/* Ad — below hero, above the catalogue */}
+      <AdSlot slot="devkeys-home-below-hero" size="horizontal" />
 
       {/* Audience filter (client island) */}
       <AudienceFilter tools={generated} grouped={grouped} orderedCategories={orderedCategories} />
