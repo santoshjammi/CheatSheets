@@ -17,7 +17,10 @@ const nextConfig: NextConfig = {
         source: "/(.*)",
         headers: [
           { key: "X-Content-Type-Options", value: "nosniff" },
-          { key: "X-Frame-Options", value: "DENY" },
+          // X-Frame-Options intentionally NOT set globally: it can make AdSense
+          // report "Site down or unavailable" during review, and the ad units
+          // render inside Google-controlled iframes. Clickjacking protection is
+          // provided by a scoped frame-ancestors policy on non-ad routes only.
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
           { key: "X-DNS-Prefetch-Control", value: "on" },
         ],
